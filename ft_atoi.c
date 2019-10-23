@@ -6,14 +6,14 @@
 /*   By: priviere <priviere@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/08 12:00:03 by priviere     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/23 13:18:47 by priviere    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/23 18:07:47 by priviere    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_atoi(const char *str)
+int		ft_atoi(const char *str)
 {
 	long	i;
 	long	a;
