@@ -6,7 +6,7 @@
 /*   By: priviere <priviere@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 12:36:44 by priviere     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/16 11:03:52 by priviere    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/22 13:21:57 by priviere    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,6 +22,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	i = 0;
 	j = 0;
 	len_dst = ft_strlen(dst);
+	if (size == 0)
+		return (ft_strlen(src) + size);
 	while (dst[i] != '\0' && i < size)
 		i++;
 	while (src[j] != '\0' && i < size - 1)

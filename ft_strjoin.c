@@ -6,24 +6,23 @@
 /*   By: priviere <priviere@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 17:47:38 by priviere     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/16 17:43:06 by priviere    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/22 18:42:53 by priviere    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	unsigned int	i;
-	unsigned int 	j;
-	unsigned int	s1len;
-	unsigned int	s2len;
-	char 			*str;
+	unsigned int	j;
+	char			*str;
 
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	if (!(str = (char *)malloc(sizeof(char)* (s1len + s2len + 1))))
+	if (!s1 || !s2)
+		return (NULL);
+	if (!(str = (char *)malloc(sizeof(char) * (ft_strlen(s1)
+	+ ft_strlen(s2) + 1))))
 		return (NULL);
 	i = 0;
 	while (s1[i] != '\0')

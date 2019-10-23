@@ -6,7 +6,7 @@
 /*   By: priviere <priviere@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 18:14:31 by priviere     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/16 17:19:35 by priviere    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/22 16:41:24 by priviere    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,21 +18,22 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	unsigned int	i;
 	char			*dest;
 	char			*sourc;
-	char			swap[len];
 
 	dest = (char *)dst;
 	sourc = (char *)src;
+	if ((dest == NULL && sourc == NULL) || len == 0)
+		return (dst);
 	i = 0;
-	while (i < len)
+	if (dest < sourc)
+		dest = ft_memcpy(dst, src, len);
+	else if (dest > sourc)
 	{
-		swap[i] = sourc[i];
-		i++;
-	}
-	i = 0;
-	while (i < len)
-	{
-		dest[i] = swap[i];
-		i++;
+		i = len;
+		while (i)
+		{
+			dest[i - 1] = sourc[i - 1];
+			i--;
+		}
 	}
 	dst = dest;
 	return (dst);

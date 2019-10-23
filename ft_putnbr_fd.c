@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_memchr.c                                      .::    .:/ .      .::   */
+/*   ft_putnbr_fd.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: priviere <priviere@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/09 19:00:15 by priviere     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/23 13:29:54 by priviere    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/22 10:53:23 by priviere     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/22 13:06:27 by priviere    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	i;
-	char			*str;
+	int mod;
+	int div;
 
-	str = (char *)s;
-	i = 0;
-	while (i < n)
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else
 	{
-		if (str[i] == c && i < n)
-			return ((char *)&str[i]);
-		i++;
+		if (n < 0)
+		{
+			write(fd, "-", 1);
+			n = n * -1;
+		}
+		if (n <= 9)
+		{
+			n = n + 48;
+			write(fd, &n, 1);
+		}
+		else
+		{
+			div = n / 10;
+			mod = n % 10;
+			ft_putnbr_fd(div, fd);
+			ft_putnbr_fd(mod, fd);
+		}
 	}
-	return (NULL);
 }

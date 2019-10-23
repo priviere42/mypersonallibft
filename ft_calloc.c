@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_calloc.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: priviere <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*   By: priviere <priviere@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 12:38:49 by priviere     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/11 09:13:18 by priviere    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/22 18:32:36 by priviere    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,15 +15,17 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	char			*ptr;
-	unsigned int	i;
+	char				*ptr;
+	unsigned int		i;
 
 	if (!(ptr = (char *)malloc(count * size)))
 		return (NULL);
+	if (count * size >= 2147483648)
+		return (ptr);
 	i = 0;
-	while (i != count)
+	while (i < count * size)
 	{
-		ptr[i] = 0;
+		ptr[i] = '\0';
 		i++;
 	}
 	return (ptr);

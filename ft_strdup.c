@@ -6,24 +6,14 @@
 /*   By: priviere <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/08 18:22:08 by priviere     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/11 09:06:01 by priviere    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/22 12:51:39 by priviere    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t			ft_strlen(const char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-char			*ft_strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
 	char	*src;
 	int		i;

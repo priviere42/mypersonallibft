@@ -6,7 +6,7 @@
 /*   By: priviere <priviere@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 15:12:22 by priviere     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/18 19:32:13 by priviere    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/22 11:13:23 by priviere    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -51,5 +51,6 @@ char    *ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void    ft_putchar_fd(char c, int fd);
 void    ft_putstr_fd(char *s, int fd);
 void    ft_putendl_fd(char *s, int fd);
+void    ft_putnbr_fd(int n, int fd);
 
 #endif
