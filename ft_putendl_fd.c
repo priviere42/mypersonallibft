@@ -6,7 +6,7 @@
 /*   By: priviere <priviere@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 16:57:33 by priviere     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/22 18:45:43 by priviere    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/24 18:50:01 by priviere    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,6 +25,6 @@ void	ft_putendl_fd(char *s, int fd)
 			write(fd, &s[i], 1);
 			i++;
 		}
+		write(fd, "\n", 1);
 	}
-	write(fd, "\n", 1);
 }

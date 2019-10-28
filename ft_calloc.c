@@ -6,7 +6,7 @@
 /*   By: priviere <priviere@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 12:38:49 by priviere     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/22 18:32:36 by priviere    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/24 18:18:01 by priviere    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,8 +20,6 @@ void	*ft_calloc(size_t count, size_t size)
 
 	if (!(ptr = (char *)malloc(count * size)))
 		return (NULL);
-	if (count * size >= 2147483648)
-		return (ptr);
 	i = 0;
 	while (i < count * size)
 	{

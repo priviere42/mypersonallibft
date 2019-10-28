@@ -6,14 +6,14 @@
 /*   By: priviere <priviere@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/14 14:25:12 by priviere     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/23 18:05:09 by priviere    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/24 18:55:43 by priviere    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*fill(char *dst, char *src, int len)
+static char	*fill(char *dst, char *src, int len)
 {
 	int i;
 
@@ -26,7 +26,7 @@ char	*fill(char *dst, char *src, int len)
 	return (dst);
 }
 
-int		count_words(char *str, char c)
+static int	count_words(char *str, char c)
 {
 	int i;
 	int word;
@@ -50,7 +50,7 @@ int		count_words(char *str, char c)
 	return (word);
 }
 
-char	*ft_str(char **res, char *str, char c, int i)
+static char	*ft_str(char **res, char *str, char c, int i)
 {
 	int k;
 

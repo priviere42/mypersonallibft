@@ -44,13 +44,13 @@ RM = rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
+all:		${NAME}
+
 %.o: 	%.c ${INCLUDES}
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
 	ar rc ${NAME} ${OBJS}
-
-all:		${NAME}
 		
 clean:
 	${RM} ${OBJS}

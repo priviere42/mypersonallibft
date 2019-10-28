@@ -6,7 +6,7 @@
 /*   By: priviere <priviere@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 18:14:31 by priviere     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/22 16:41:24 by priviere    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/24 18:40:32 by priviere    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,7 +26,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	i = 0;
 	if (dest < sourc)
 		dest = ft_memcpy(dst, src, len);
-	else if (dest > sourc)
+	else
 	{
 		i = len;
 		while (i)
