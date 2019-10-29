@@ -6,7 +6,7 @@
 /*   By: priviere <priviere@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/18 18:29:19 by priviere     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/24 13:18:41 by priviere    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 16:36:20 by priviere    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,11 +35,6 @@ static long	ft_nblen(long nb)
 
 static char	*ft_check_exceptions(long nb, char *str)
 {
-	if (nb == 2147483648)
-	{
-		str = "2147483648";
-		return (str);
-	}
 	if (nb == 0)
 	{
 		str[0] = '0';

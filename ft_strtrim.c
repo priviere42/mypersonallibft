@@ -6,7 +6,7 @@
 /*   By: priviere <priviere@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 12:36:44 by priviere     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/23 14:43:15 by priviere    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 14:54:34 by priviere    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,6 +31,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 {
 	int		start;
 	int		len;
+	char	*str;
 
 	start = 0;
 	if (!s1)
@@ -38,9 +39,11 @@ char		*ft_strtrim(char const *s1, char const *set)
 	len = ft_strlen(s1);
 	while (check(s1[start], set))
 		start++;
-	while (check(s1[len - 1], set))
+	while (len - 1 >= 0 && check(s1[len - 1], set))
 		len--;
 	if (len - start <= 0)
-		return ("");
-	return (ft_substr(s1, start, (len - start)));
+		return (ft_strdup(""));
+	if (!(str = ft_substr(s1, start, (len - start))))
+		return (0);
+	return (str);
 }

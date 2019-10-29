@@ -6,14 +6,25 @@
 /*   By: priviere <priviere@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/14 14:25:12 by priviere     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/24 18:55:43 by priviere    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 15:29:16 by priviere    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*fill(char *dst, char *src, int len)
+static void		*ft_free(char **res, int i)
+{
+	while (i >= 0)
+	{
+		free(res[i]);
+		i--;
+	}
+	free(res);
+	return (0);
+}
+
+static char		*ft_fill(char *dst, char *src, int len)
 {
 	int i;
 
@@ -26,7 +37,7 @@ static char	*fill(char *dst, char *src, int len)
 	return (dst);
 }
 
-static int	count_words(char *str, char c)
+static int		ft_count_words(char *str, char c)
 {
 	int i;
 	int word;
@@ -50,7 +61,7 @@ static int	count_words(char *str, char c)
 	return (word);
 }
 
-static char	*ft_str(char **res, char *str, char c, int i)
+static char		*ft_str(char **res, char *str, char c, int i)
 {
 	int k;
 
@@ -59,36 +70,36 @@ static char	*ft_str(char **res, char *str, char c, int i)
 	{
 		while (str[k] != c && str[k])
 			k++;
-		res[i] = ft_calloc(k + 1, sizeof(char));
+		if (!(res[i] = ft_calloc(k + 1, sizeof(char))))
+			return (NULL);
 		while (*str == c && *str)
 			str++;
-		res[i] = fill(res[i], str, k);
+		res[i] = ft_fill(res[i], str, k);
 		str += k;
 	}
 	return (str);
 }
 
-char	**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**res;
 	char	*str;
 	int		i;
-	int		k;
 	int		words;
 
 	if (!s)
 		return (NULL);
 	str = (char *)s;
-	words = count_words(str, c);
+	words = ft_count_words(str, c);
 	if (!(res = (char **)malloc(sizeof(char *) * (words + 1))))
 		return (NULL);
 	i = 0;
-	k = 0;
 	while (i != words)
 	{
 		while (*str == c)
 			str++;
-		str = ft_str(res, str, c, i);
+		if (!(str = ft_str(res, str, c, i)))
+			return (ft_free(res, i));
 		i++;
 	}
 	res[i] = NULL;
